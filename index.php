@@ -44,20 +44,6 @@ if(isset($_POST['delete'])){
     }
 }
 
-// Handle editing
-if(isset($_POST['edit'])){
-    $edit_id = $_POST['edit'];
-    $new_body = $_POST['new_body'];
-    $sql = "UPDATE todo SET body='$new_body' WHERE id='$edit_id'";
-    if(mysqli_query($conn, $sql)){
-        // Redirect to prevent form resubmission
-        header('Location: index.php');
-        exit(); // Exit to prevent further execution
-    } else {
-        // Display error if editing fails
-        echo 'Error' . mysqli_error($conn);
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
